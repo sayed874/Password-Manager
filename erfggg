@@ -1,0 +1,31 @@
+import subprocess
+
+# Set the local repository path
+repository_path = "/path/to/local/repository"
+
+# Set the remote repository URL
+remote_url = "https://github.com/username/repository.git"
+
+# Set the branch name
+branch = "main"
+
+# Set the commit message
+commit_message = "Initial commit"
+
+# Change directory to the local repository path
+subprocess.run(["cd", repository_path], check=True, shell=True)
+
+# Initialize the local repository as a Git repository
+subprocess.run(["git", "init"], check=True)
+
+# Add all files to the Git index
+subprocess.run(["git", "add", "."], check=True)
+
+# Commit the changes
+subprocess.run(["git", "commit", "-m", commit_message], check=True)
+
+# Add the remote repository URL
+subprocess.run(["git", "remote", "add", "origin", remote_url], check=True)
+
+# Push the code to the remote repository
+subprocess.run(["git", "push", "-u", "origin", branch], check=True
